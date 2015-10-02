@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyText
+  faculty_id: 1
+  department_id: 1
+  year_id: 1
+  class_section_id: 1
+
+two:
+  message: MyText
+  faculty_id: 1
+  department_id: 1
+  year_id: 1
+  class_section_id: 1
