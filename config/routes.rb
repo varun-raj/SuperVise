@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   resources :departments
   resources :posts
   devise_for :admins
-  devise_for :faculties
-  devise_for :students
+  devise_for :faculties, controllers: {
+        sessions: 'faculties/sessions'
+      }
+  devise_for :students, controllers: {
+        sessions: 'students/sessions'
+      }
+
 
   root "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
