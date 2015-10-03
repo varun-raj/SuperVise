@@ -1,0 +1,32 @@
+{
+  "name": "SHRINK",
+  "version": "1.1",
+  "homepage": "http://www.skcript.com/",
+  "authors": [
+    "Karthik K <karthik@skcript.com>"
+  ],
+  "description": "All new SHRINK. The mature SHRINK.",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "Skcript"
+  ],
+  "license": "Closed",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "bootstrap-select": "~1.7.3",
+    "datatables": "DataTables#~1.10.9",
+    "jquery-ui": "~1.11.4",
+    "select2": "~4.0.0",
+    "ui-contextmenu": "~1.10.0"
+  }
+}

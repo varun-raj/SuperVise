@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002030032) do
+ActiveRecord::Schema.define(version: 20151002173737) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -31,10 +31,19 @@ ActiveRecord::Schema.define(version: 20151002030032) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
-  create_table "class_sections", force: :cascade do |t|
-    t.string   "name",       limit: 255
+  create_table "batches", force: :cascade do |t|
+    t.integer  "start_year", limit: 4
+    t.integer  "end_year",   limit: 4
+    t.string   "title",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "class_sections", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.integer  "department_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "departments", force: :cascade do |t|
@@ -85,15 +94,14 @@ ActiveRecord::Schema.define(version: 20151002030032) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "name",                   limit: 255
+    t.integer  "register_number",        limit: 4
+    t.integer  "department_id",          limit: 4
+    t.integer  "batch_id",               limit: 4
+    t.integer  "class_section_id",       limit: 4
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
   add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
-
-  create_table "years", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
 
 end

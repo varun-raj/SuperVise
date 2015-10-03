@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class YearTest < ActiveSupport::TestCase
+class BatchTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

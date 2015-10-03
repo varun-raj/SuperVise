@@ -1,0 +1,29 @@
+<%= form_for(@batch) do |f| %>
+  <% if @batch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@batch.errors.count, "error") %> prohibited this batch from being saved:</h2>
+
+      <ul>
+      <% @batch.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_year %><br>
+    <%= f.number_field :start_year %>
+  </div>
+  <div class="field">
+    <%= f.label :end_year %><br>
+    <%= f.number_field :end_year %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
