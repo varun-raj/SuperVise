@@ -21,6 +21,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Classroom" , classroom_path %> </li>
         <li class="dropdown">
                 <%if student_signed_in? %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_student.name.blank? ? current_student.email : current_student.name  %>  <span class="caret"></span></a>

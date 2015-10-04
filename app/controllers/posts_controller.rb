@@ -28,12 +28,24 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        format.html { redirect_to post, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: post }
       else
         format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: post.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def classroom
+    @post = Post.new(post_params)
+    @post.student_id = current_student.id
+    @post.department_id = current_student.department_id
+    @post.batch_id = current_student.batch_id
+    @post.class_section_id = current_student.class_section_id
+    @post.save
+    respond_to do |format|
+        format.js
     end
   end
 
@@ -69,6 +81,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:message, :faculty_id, :department_id, :year_id, :class_section_id)
+      params.permit(:message, :faculty_id, :department_id, :year_id, :class_section_id)
     end
 end

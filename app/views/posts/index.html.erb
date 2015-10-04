@@ -15,13 +15,13 @@
   </thead>
 
   <tbody>
-    <% @posts.each do |post| %>
+    <% posts.each do |post| %>
       <tr>
-        <td><%= post.message %></td>
-        <td><%= post.faculty_id %></td>
-        <td><%= post.department_id %></td>
-        <td><%= post.year_id %></td>
-        <td><%= post.class_section_id %></td>
+        <td><%= @post.message %></td>
+        <td><%= @post.faculty_id %></td>
+        <td><%= @post.department_id %></td>
+        <td><%= @post.year_id %></td>
+        <td><%= @post.class_section_id %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

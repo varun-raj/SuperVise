@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'classroom' => "classroom#index", as: :classroom
+  get 'classroom/mates'
+
   resources :batches
   resources :class_sections
   resources :departments
@@ -11,7 +14,8 @@ Rails.application.routes.draw do
         sessions: 'students/sessions'
       }
 
-
+  get "profile/:id" => "home#profile", as: :profile
+  post "posts#classroom" => "posts#classroom", as: :classroom_post
   root "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
