@@ -9,6 +9,8 @@ class Student < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
   attr_accessor :login
+  mount_uploader :avatar, AvatarUploader
+
 
   validates :register_number,
   :presence => true,
@@ -19,8 +21,16 @@ class Student < ActiveRecord::Base
   } # etc.
 
 
+  def mates
+      Student.where(:department_id =>self.department_id).where(:batch_id => self.batch_id).where(:class_section_id => self.class_section_id).all
+  end
+
   def login=(login)
     @login = login
+  end
+
+  def avatar_url
+     self.avatar.url.present? ? self.avatar.url : "/pic"
   end
 
   def login

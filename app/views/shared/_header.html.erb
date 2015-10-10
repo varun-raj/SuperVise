@@ -24,7 +24,9 @@
         <li><%= link_to "Classroom" , classroom_path %> </li>
         <li class="dropdown">
                 <%if student_signed_in? %>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_student.name.blank? ? current_student.email : current_student.name  %>  <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle profile-image " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+            <%= image_tag(current_student.avatar_url,class: "img-circle", width: 30 , height:30 ) %> <%= current_student.name.blank? ? current_student.email : current_student.name  %>  <span class="caret"></span></a>
             <% elsif faculty_signed_in? %>
 
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <%= current_faculty.email %>  <span class="caret"></span></a>

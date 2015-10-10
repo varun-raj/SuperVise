@@ -4,4 +4,5 @@
 //= require bootstrap-select/dist/js/bootstrap-select.min
 //= require datatables/media/js/jquery.dataTables.min
 //= require datatables/media/js/dataTables.bootstrap.min
+//= require capsule
 //= require_tree .

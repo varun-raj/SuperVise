@@ -1,22 +1,28 @@
-<article class="row">
-  <div class="col-md-1 col-sm-1 hidden-xs">
-    <figure class="thumbnail"  height="50" width = "50">
-      <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
-    </figure>
-  </div>
-  <div class="col-md-10 col-sm-10">
-    <div class="panel panel-default arrow left">
-      <div class="panel-body">
-        <header class="text-left">
-          <div class="comment-user"><i class="fa fa-user"></i><%= post.student.name %></div>
-          <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= post.created_at.strftime("%B %d, %Y") %></time>
-        </header>
-        <div class="comment-post">
-          <p>
-            <%= post.message %>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
+
+
+<% if post.id % 2 == 0 %>
+<li>
+  <%else %>
+  <li class="timeline-inverted">
+  <% end %>
+         <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>
+         <div class="timeline-panel">
+           <div class="timeline-heading">
+             <!-- <%= image_tag(post.student.avatar.url, class:"img-responsive") %> -->
+
+           </div>
+           <div class="timeline-body">
+             <h3><%= post.student.name %></h3>
+             <p>
+               <%= post.message %>
+             </p>
+
+           </div>
+
+           <div class="timeline-footer">
+               <a><i class="glyphicon glyphicon-thumbs-up"></i></a>
+               <a><i class="glyphicon glyphicon-share"></i></a>
+               <a class="pull-right"> <%= post.created_at.strftime("%B %d, %Y") %></a>
+           </div>
+         </div>
+       </li>

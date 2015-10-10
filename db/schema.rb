@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004132055) do
+ActiveRecord::Schema.define(version: 20151010133900) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20151004132055) do
     t.integer  "department_id",          limit: 4
     t.integer  "batch_id",               limit: 4
     t.integer  "class_section_id",       limit: 4
+    t.string   "avatar",                 limit: 255
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree

@@ -4,6 +4,12 @@
   <%= devise_error_messages! %>
 
   <div class="form-group">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar, class: "form-control"%>
+  </div>
+
+
+  <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true , class: "form-control"%>
   </div>
@@ -18,17 +24,17 @@
 
   <div class="form-group">
     <%= f.label :department %><br />
-    <%= f.select("department_id", options_from_collection_for_select(Department.all, "id", "name"),{} ,{:class => "form-control ", 'data-size' =>'5' , 'data-live-search' => "true" , required: :true })%>
+    <%= f.select(:department_id, options_from_collection_for_select(Department.all, "id", "name", current_student.department_id),{} ,{:class => "form-control ", 'data-size' =>'5' , 'data-live-search' => "true" , required: :true })%>
   </div>
 
   <div class="form-group">
     <%= f.label :class_section %><br />
-    <%= f.select("class_section_id", options_from_collection_for_select(ClassSection.all, "id", "full_name"),{} ,{:class => "form-control ", 'data-size' =>'5' , 'data-live-search' => "true" , required: :true })%>
+    <%= f.select("class_section_id", options_from_collection_for_select(ClassSection.all, "id", "full_name", current_student.class_section_id),{} ,{:class => "form-control ", 'data-size' =>'5' , 'data-live-search' => "true" , required: :true })%>
   </div>
 
   <div class="form-group">
     <%= f.label :batch %><br />
-    <%= f.select("batch_id", options_from_collection_for_select(Batch.all, "id", "title"),{} ,{:class => "form-control ", 'data-size' =>'5' , 'data-live-search' => "true" , required: :true })%>
+    <%= f.select("batch_id", options_from_collection_for_select(Batch.all, "id", "title", current_student.batch_id),{} ,{:class => "form-control ", 'data-size' =>'5' , 'data-live-search' => "true" , required: :true })%>
   </div>
 
 
