@@ -1,5 +1,9 @@
 <h1>Classroom#mates</h1>
 <p>Find me in app/views/classroom/mates.html.erb</p>
 <% @mates.each do |mate| %>
-  <%=  mate.name %>
+
+<div class="media">
+  <%= image_tag mate.avatar.url ,class: "img-circle", width:"50", height: "50"%>
+  <h4><%=  mate.name %></h4>
+</div>
 <% end %>
