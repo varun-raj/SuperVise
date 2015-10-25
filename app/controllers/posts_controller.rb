@@ -44,9 +44,7 @@ class PostsController < ApplicationController
     @post.batch_id = current_student.batch_id
     @post.class_section_id = current_student.class_section_id
     @post.save
-    respond_to do |format|
-        format.js
-    end
+    redirect_to :back
   end
 
   # PATCH/PUT /posts/1
@@ -67,10 +65,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to :back
   end
 
   private
@@ -81,6 +76,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.permit(:message, :faculty_id, :department_id, :year_id, :class_section_id)
+      params.permit(:message, :faculty_id, :department_id, :year_id, :class_section_id, :attachment)
     end
 end

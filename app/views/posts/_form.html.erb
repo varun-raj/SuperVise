@@ -1,12 +1,16 @@
 <% if classroom %>
 <% end %>
-<%= form_tag classroom_post_path, remote: true do %>
+<%= form_tag classroom_post_path do %>
 
   <div class="form-group">
     <%= label_tag :message %><br>
     <%= text_area_tag :message, "",class: "form-control" %>
   </div>
 
+    <div class="form-group">
+      <%= label_tag :attachment %><br>
+      <%= file_field_tag :attachment,class: "form-control" %>
+    </div>
   <div class="form-group">
     <%= submit_tag  "Submit", class: "btn btn-success" %>
   </div>
